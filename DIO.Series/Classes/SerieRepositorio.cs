@@ -8,37 +8,37 @@ using System.Threading.Tasks;
 namespace DIO.Series
 
 {
-    class SerieRepositorio : IRepositorio<Serie>
+    public class SerieRepositorio : IRepositorio<Serie>
     {
         private List<Serie> ListaSerie = new List<Serie>();
-        public void Atualiza(int Id, Serie entidade)
+        public void Atualiza(int id, Serie entidade)
         {
-            throw new NotImplementedException();
+            ListaSerie[id] = entidade;
         }
 
-        public void Exclui(int Id)
+        public void Exclui(int id)
         {
-            throw new NotImplementedException();
+            ListaSerie[id].Excluir();
         }
 
         public void Insere(Serie entidade)
         {
-            throw new NotImplementedException();
+            ListaSerie.Add(entidade);
         }
 
         public List<Serie> Lista()
         {
-            throw new NotImplementedException();
+            return ListaSerie;
         }
 
         public int ProximoId()
         {
-            throw new NotImplementedException();
+            return ListaSerie.Count;
         }
 
-        public Serie RetornaPorId(int Id)
+        public Serie RetornaPorId(int id)
         {
-            throw new NotImplementedException();
+            return ListaSerie[id];
         }
     }
 }
