@@ -6,12 +6,11 @@ namespace DIO.Series
     {
         static void Main(string[] args)
         {
-            Serie eu = new Serie();
-            eu.Id = 46;
+            Serie eu = new Serie(01, Genero.Acao, "Muito bom", "bem legal", 2020 );
 
+            Console.WriteLine(eu);
             
 
-            Console.WriteLine(eu.Id);
         }
     }
 }

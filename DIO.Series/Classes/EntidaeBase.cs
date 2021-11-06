@@ -8,6 +8,6 @@ namespace DIO.Series
 {
     public  class EntidaeBase
     {
-        public int Id { get;  set; }
+        public int Id { get; protected set; }
     }
 }
