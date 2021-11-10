@@ -6,6 +6,7 @@ namespace DIO.Series
     {
         static void Main(string[] args)
         {
+            //testando
             SerieRepositorio repositorio = new SerieRepositorio();
 
             string opcaoUsuario = ObterOpcaoUsuario();
