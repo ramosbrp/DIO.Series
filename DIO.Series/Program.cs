@@ -6,7 +6,6 @@ namespace DIO.Series
     {
         static void Main(string[] args)
         {
-            //testando
             SerieRepositorio repositorio = new SerieRepositorio();
 
             string opcaoUsuario = ObterOpcaoUsuario();
@@ -22,7 +21,7 @@ namespace DIO.Series
                         InserirSerie();
                         break;
                     case "3":
-                        //AtualizarSerie();
+                        AtualizarSerie();
                         break;
                     case "4":
                         //ExcluirSerie();
@@ -41,6 +40,37 @@ namespace DIO.Series
 
                 Console.WriteLine("Obrigado por utilizar nossos serviços.");
                 Console.WriteLine();
+            }
+
+            void AtualizarSerie()
+            {
+                Console.WriteLine("Digite o id da série: ");
+                int indiceSerie = int.Parse(Console.ReadLine());
+
+                foreach (int i in Enum.GetValues(typeof(Genero)))
+                {
+                    Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+                }
+
+                Console.WriteLine("Digite o gênero entre as opções acima: ");
+                int entraGenero = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Digite o título da série: ");
+                string entraTitulo = Console.ReadLine();
+
+                Console.WriteLine("Digite o ano de início da série");
+                int entraAno = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Digite a descrição da série: ");
+                string entraDescricao = Console.ReadLine();
+
+                Serie atualizaSerie = new Serie(id: indiceSerie,
+                                            genero: (Genero)entraGenero,
+                                            titulo: entraTitulo,
+                                            ano: entraAno,
+                                            descricao: entraDescricao);
+
+                repositorio.Atualiza(indiceSerie, atualizaSerie);
             }
 
             void ListarSeries()
