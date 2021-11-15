@@ -24,10 +24,10 @@ namespace DIO.Series
                         AtualizarSerie();
                         break;
                     case "4":
-                        //ExcluirSerie();
+                        ExcluirSerie();
                         break;
                     case "5":
-                        //VisualizarSerie();
+                        VisualizarSerie();
                         break;
                     case "C":
                         Console.Clear();
@@ -40,6 +40,24 @@ namespace DIO.Series
 
                 Console.WriteLine("Obrigado por utilizar nossos serviços.");
                 Console.WriteLine();
+            }
+
+            void VisualizarSerie()
+            {
+                Console.WriteLine("Digite o id da série: ");
+                int indiceSerie = int.Parse(Console.ReadLine());
+
+                var serie = repositorio.RetornaPorId(indiceSerie);
+
+                Console.WriteLine(serie);
+            }
+
+            void ExcluirSerie()
+            {
+                Console.WriteLine("Digite o id da série: ");
+                int indiceSerie = int.Parse(Console.ReadLine());
+
+                repositorio.Exclui(indiceSerie);
             }
 
             void AtualizarSerie()
@@ -97,6 +115,7 @@ namespace DIO.Series
 
                 foreach(int i in Enum.GetValues(typeof(Genero)))
                 {
+                    //Listando gêneros
                     Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
                 }
 
